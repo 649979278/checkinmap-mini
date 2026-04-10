@@ -1,6 +1,11 @@
 const https = require("https");
 const cloud = require("wx-server-sdk");
-const { tencentMapKey, placeSearchUrl } = require("./config");
+const {
+  tencentMapKey,
+  tencentMapSecretKey,
+  placeSearchPath,
+} = require("./config");
+const { buildSignedPlaceSearchUrl } = require("./signature");
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV,
@@ -48,9 +53,16 @@ async function searchScenicSpots(keyword) {
  * @returns {Promise<Object>} 腾讯位置服务返回值。
  */
 function searchRestaurants(keyword) {
-  const url = `${placeSearchUrl}?boundary=region(${encodeURIComponent(
-    "北京市"
-  )},1)&keyword=${encodeURIComponent(keyword)}&page_size=8&key=${tencentMapKey}`;
+  const url = buildSignedPlaceSearchUrl({
+    endpointPath: placeSearchPath,
+    params: {
+      boundary: "region(北京市,1)",
+      keyword,
+      page_size: "8",
+      key: tencentMapKey,
+    },
+    secretKey: tencentMapSecretKey,
+  });
 
   return new Promise((resolve, reject) => {
     https
