@@ -1,0 +1,118 @@
+<view class="page">
+  <view class="hero section-card">
+    <view class="hero-header">
+      <view>
+        <view class="hero-title">北京地图打卡</view>
+        <view class="hero-subtitle">默认展示城六区景点，饭店仅搜索后打卡</view>
+      </view>
+      <button class="ghost-button" bindtap="onNavigateToCheckins">我的打卡</button>
+    </view>
+
+    <view class="search-row">
+      <input
+        class="search-input"
+        placeholder="搜索景点或饭店"
+        confirm-type="search"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <button class="search-button" bindtap="onSearchConfirm" loading="{{searchLoading}}">搜索</button>
+      <button class="clear-button" wx:if="{{searchKeyword}}" bindtap="onClearSearch">清空</button>
+    </view>
+    <view class="error-text" wx:if="{{searchError}}">{{searchError}}</view>
+
+    <view class="search-panel section-card" wx:if="{{searchResults.length}}">
+      <view class="panel-title">搜索结果</view>
+      <view
+        class="search-item"
+        wx:for="{{searchResults}}"
+        wx:key="placeId"
+        data-index="{{index}}"
+        bindtap="onTapSearchResult"
+      >
+        <view class="search-item-main">
+          <view class="search-item-title">{{item.placeName}}</view>
+          <view class="search-item-subtitle">{{item.subtitle}}</view>
+        </view>
+        <view class="search-tag {{item.checked ? 'checked' : ''}}">
+          {{item.checked ? "已打卡" : (item.placeType === "restaurant" ? "饭店" : "景点")}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="progress-grid">
+    <view class="progress-card section-card" wx:for="{{districtProgress}}" wx:key="key">
+      <view class="progress-name">{{item.name}}</view>
+      <view class="progress-value">{{item.checkedCount}} / {{item.totalCount}}</view>
+      <view class="progress-bar">
+        <view
+          class="progress-bar-fill"
+          style="width: {{item.totalCount ? (item.checkedCount / item.totalCount) * 100 : 0}}%;"
+        ></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="map-card section-card">
+    <view class="map-header">
+      <view class="panel-title">北京城六区地图</view>
+      <view class="legend-row">
+        <view class="legend-item" wx:for="{{legendItems}}" wx:key="key">
+          <view class="{{item.className}}"></view>
+          <text>{{item.label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="error-box" wx:if="{{loadError}}">
+      <view class="error-box-title">首页数据加载失败</view>
+      <view class="error-box-text">{{loadError}}</view>
+      <button class="retry-button" bindtap="loadHomeData" loading="{{pageLoading}}">重试</button>
+    </view>
+
+    <map
+      wx:else
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      scale="{{scale}}"
+      markers="{{markers}}"
+      show-location="{{false}}"
+      enable-scroll="{{true}}"
+      enable-zoom="{{true}}"
+      bindmarkertap="onTapMarker"
+    ></map>
+  </view>
+
+  <view class="empty-tip section-card" wx:if="{{!pageLoading && !markers.length && !loadError}}">
+    <view class="empty-title">暂无地图点位</view>
+    <view class="empty-subtitle">请先部署云函数并执行一次景点数据初始化。</view>
+  </view>
+
+  <view class="sheet-mask" wx:if="{{showPlaceSheet}}" bindtap="closePlaceSheet"></view>
+  <view class="sheet section-card" wx:if="{{showPlaceSheet}}">
+    <view class="sheet-handle"></view>
+    <view class="sheet-title">{{selectedPlace.placeName || selectedPlace.name}}</view>
+    <view class="sheet-subtitle">
+      {{selectedPlace.placeType === "restaurant" ? "饭店" : "景点"}} ·
+      {{selectedPlace.category === "park" ? "公园" : (selectedPlace.category === "area" ? "区域" : (selectedPlace.placeType === "restaurant" ? "餐饮" : "名胜"))}} ·
+      {{selectedPlace.district || "北京市"}}
+    </view>
+    <view class="sheet-address" wx:if="{{selectedPlace.address}}">{{selectedPlace.address}}</view>
+    <textarea
+      class="note-input"
+      maxlength="200"
+      placeholder="例如：这里适合散步，或者哪道菜值得点"
+      value="{{noteDraft}}"
+      bindinput="onNoteInput"
+    ></textarea>
+    <view class="sheet-actions">
+      <button class="sheet-cancel" bindtap="closePlaceSheet">取消</button>
+      <button class="sheet-confirm" bindtap="onSubmitCheckin" loading="{{saving}}">
+        {{selectedPlace.checked ? "更新备注" : "确认打卡"}}
+      </button>
+    </view>
+  </view>
+</view>

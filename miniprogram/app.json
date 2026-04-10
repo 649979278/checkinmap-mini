@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checkins/index"
+  ],
+  "window": {
+    "backgroundColor": "#F4F7F9",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F4F7F9",
+    "navigationBarTitleText": "北京地图打卡",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,101 @@
+.page {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.header,
+.filters,
+.error-box,
+.loading-box,
+.empty-box,
+.checkin-card {
+  padding: 24rpx;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 700;
+}
+
+.subtitle,
+.error-text,
+.loading-text,
+.empty-text,
+.card-subtitle,
+.card-time {
+  margin-top: 8rpx;
+  color: #64748b;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.type-tabs {
+  display: flex;
+  gap: 14rpx;
+  flex-wrap: wrap;
+}
+
+.type-tab {
+  padding: 14rpx 24rpx;
+  border-radius: 999rpx;
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 24rpx;
+}
+
+.type-tab.active {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.district-picker {
+  margin-top: 20rpx;
+  padding: 20rpx 24rpx;
+  background: #f8fafc;
+  border-radius: 20rpx;
+  color: #334155;
+  font-size: 24rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.card-badge {
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+}
+
+.card-badge.scenic {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.card-badge.restaurant {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.card-note {
+  margin-top: 18rpx;
+  font-size: 26rpx;
+  color: #1f2937;
+  line-height: 1.7;
+}

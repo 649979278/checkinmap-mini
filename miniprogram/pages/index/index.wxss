@@ -1,0 +1,314 @@
+.page {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.hero {
+  padding: 28rpx;
+}
+
+.hero-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.hero-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.hero-subtitle {
+  margin-top: 8rpx;
+  color: #64748b;
+  font-size: 24rpx;
+}
+
+.ghost-button,
+.search-button,
+.clear-button,
+.retry-button,
+.sheet-cancel,
+.sheet-confirm {
+  border-radius: 999rpx;
+  font-size: 24rpx;
+}
+
+.ghost-button {
+  padding: 0 24rpx;
+  line-height: 64rpx;
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.search-row {
+  margin-top: 24rpx;
+  display: flex;
+  gap: 12rpx;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  background: #f8fafc;
+  border-radius: 999rpx;
+  padding: 0 28rpx;
+  height: 72rpx;
+  font-size: 28rpx;
+}
+
+.search-button {
+  min-width: 140rpx;
+  line-height: 72rpx;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.clear-button {
+  min-width: 120rpx;
+  line-height: 72rpx;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.error-text {
+  margin-top: 16rpx;
+  color: #b91c1c;
+  font-size: 24rpx;
+}
+
+.search-panel {
+  margin-top: 24rpx;
+  padding: 20rpx 24rpx;
+}
+
+.panel-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.search-item {
+  padding: 22rpx 0;
+  border-bottom: 1rpx solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item-main {
+  flex: 1;
+}
+
+.search-item-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.search-item-subtitle {
+  margin-top: 8rpx;
+  color: #64748b;
+  font-size: 22rpx;
+}
+
+.search-tag {
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 22rpx;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+}
+
+.search-tag.checked {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+}
+
+.progress-card {
+  padding: 22rpx;
+}
+
+.progress-name {
+  font-size: 24rpx;
+  color: #475569;
+}
+
+.progress-value {
+  margin-top: 10rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.progress-bar {
+  margin-top: 16rpx;
+  background: #e2e8f0;
+  border-radius: 999rpx;
+  height: 12rpx;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0f766e, #22c55e);
+  border-radius: 999rpx;
+}
+
+.map-card {
+  padding: 24rpx;
+}
+
+.map-header {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.legend-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  color: #475569;
+  font-size: 22rpx;
+}
+
+.legend-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+}
+
+.legend-dot.park {
+  background: #2563eb;
+}
+
+.legend-dot.landmark {
+  background: #f59e0b;
+}
+
+.legend-dot.checked {
+  background: #16a34a;
+}
+
+.map {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 720rpx;
+  border-radius: 28rpx;
+  overflow: hidden;
+}
+
+.error-box,
+.empty-tip {
+  padding: 28rpx 0 0;
+}
+
+.error-box-title,
+.empty-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.error-box-text,
+.empty-subtitle {
+  margin-top: 10rpx;
+  color: #64748b;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.retry-button {
+  margin-top: 20rpx;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.sheet-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.sheet {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: 24rpx;
+  z-index: 10;
+  padding: 24rpx;
+}
+
+.sheet-handle {
+  width: 88rpx;
+  height: 8rpx;
+  border-radius: 999rpx;
+  background: #cbd5e1;
+  margin: 0 auto 18rpx;
+}
+
+.sheet-title {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.sheet-subtitle,
+.sheet-address {
+  margin-top: 10rpx;
+  color: #64748b;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.note-input {
+  margin-top: 22rpx;
+  width: 100%;
+  min-height: 180rpx;
+  border-radius: 24rpx;
+  background: #f8fafc;
+  padding: 24rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+
+.sheet-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.sheet-cancel,
+.sheet-confirm {
+  flex: 1;
+  line-height: 80rpx;
+}
+
+.sheet-cancel {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.sheet-confirm {
+  background: #0f766e;
+  color: #ffffff;
+}

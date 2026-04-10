@@ -1,0 +1,77 @@
+<h2>地图打卡小程序首版结构示意（修订）</h2>
+<p class="subtitle">首页只保留地图、搜索和打卡进度，详情信息后置到弹层或次级页面</p>
+
+<div class="cards">
+  <div class="card" data-choice="home-structure" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">首页 / 北京地图</div>
+        <div class="mockup-body">
+          <div style="padding:12px 14px;border-bottom:1px solid #e5e7eb;background:#f8fafc;">
+            <div class="mock-input">搜索景点或饭店</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;">
+              <div class="placeholder" style="min-height:58px;background:#ecfeff;border-color:#99f6e4;">东城 3/12</div>
+              <div class="placeholder" style="min-height:58px;background:#ecfeff;border-color:#99f6e4;">西城 5/14</div>
+              <div class="placeholder" style="min-height:58px;background:#ecfeff;border-color:#99f6e4;">朝阳 2/20</div>
+              <div class="placeholder" style="min-height:58px;background:#f8fafc;">海淀 0/18</div>
+              <div class="placeholder" style="min-height:58px;background:#f8fafc;">丰台 1/11</div>
+              <div class="placeholder" style="min-height:58px;background:#f8fafc;">石景山 0/8</div>
+            </div>
+          </div>
+          <div style="height:260px;background:linear-gradient(180deg,#dbeafe,#dcfce7);position:relative;display:flex;align-items:center;justify-content:center;color:#334155;font-weight:600;">
+            <div style="position:absolute;left:18%;top:28%;width:18px;height:18px;border-radius:50%;background:#2563eb;"></div>
+            <div style="position:absolute;left:31%;top:44%;width:18px;height:18px;border-radius:50%;background:#f59e0b;"></div>
+            <div style="position:absolute;left:48%;top:30%;width:18px;height:18px;border-radius:50%;background:#16a34a;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;">✓</div>
+            <div style="position:absolute;left:58%;top:52%;width:18px;height:18px;border-radius:50%;background:#2563eb;"></div>
+            <div style="position:absolute;left:67%;top:36%;width:18px;height:18px;border-radius:50%;background:#16a34a;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;">✓</div>
+            北京城六区地图区域
+          </div>
+          <div style="padding:10px 14px;background:#fff;border-top:1px solid #e5e7eb;display:flex;gap:10px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;">
+              <div style="width:12px;height:12px;border-radius:50%;background:#2563eb;"></div> 公园
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;">
+              <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;"></div> 名胜
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;color:#475569;font-size:13px;">
+              <div style="width:12px;height:12px;border-radius:50%;background:#16a34a;"></div> 已打卡
+            </div>
+          </div>
+          <div style="padding:12px 14px;background:#fff;">
+            <div style="font-weight:600;margin-bottom:8px;">首页不展开地点详情</div>
+            <div class="placeholder" style="min-height:64px;">点击地图标记或搜索结果后，再进入详情弹层 / 详情页查看备注与打卡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>首页结构</h3>
+      <p>顶部搜索，下方展示 6 个行政区打卡进度，中间是地图和图例；饭店不进入区域进度，只在打卡后显示为已打卡地点。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="checkin-panel" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">地点详情 / 打卡弹层</div>
+        <div class="mockup-body" style="padding:16px;background:#f8fafc;">
+          <div style="background:#fff;border-radius:16px;padding:16px;box-shadow:0 10px 25px rgba(15,23,42,.08);">
+            <div style="font-weight:700;font-size:18px;">陶然亭公园</div>
+            <div style="color:#64748b;margin-top:6px;">景点 · 西城区 · 已内置</div>
+            <div class="placeholder" style="min-height:72px;margin-top:12px;">地图缩略信息 / 地址 / 标签</div>
+            <div style="margin-top:12px;font-weight:600;">打卡备注</div>
+            <div class="mock-input" style="height:72px;display:flex;align-items:flex-start;padding-top:10px;">这里适合散步，湖边景色不错</div>
+            <div style="display:flex;gap:10px;margin-top:12px;">
+              <button class="mock-button" style="background:#0f766e;flex:1;">确认打卡</button>
+              <button class="mock-button" style="background:#94a3b8;flex:1;">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>打卡交互</h3>
+      <p>点击地图点位或搜索结果进入详情弹层，填写备注后确认打卡；景点打卡会更新区域进度，饭店只更新自己的已打卡状态。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="header section-card">
+    <view class="title">我的打卡</view>
+    <view class="subtitle">查看已打卡景点、饭店和备注内容</view>
+  </view>
+
+  <view class="filters section-card">
+    <view class="type-tabs">
+      <view
+        class="type-tab {{activeType === item.key ? 'active' : ''}}"
+        wx:for="{{typeTabs}}"
+        wx:key="key"
+        data-type="{{item.key}}"
+        bindtap="onChangeType"
+      >
+        {{item.label}}
+      </view>
+    </view>
+
+    <picker
+      mode="selector"
+      range="{{districtOptions}}"
+      value="{{districtIndex}}"
+      bindchange="onDistrictChange"
+    >
+      <view class="district-picker">行政区：{{districtOptions[districtIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="error-box section-card" wx:if="{{error}}">
+    <view class="error-title">加载失败</view>
+    <view class="error-text">{{error}}</view>
+  </view>
+
+  <view class="loading-box section-card" wx:if="{{loading}}">
+    <view class="loading-text">正在加载打卡记录...</view>
+  </view>
+
+  <view class="list" wx:elif="{{displayedCheckins.length}}">
+    <view class="checkin-card section-card" wx:for="{{displayedCheckins}}" wx:key="_id">
+      <view class="card-head">
+        <view>
+          <view class="card-title">{{item.placeName}}</view>
+          <view class="card-subtitle">
+            {{item.placeType === "restaurant" ? "饭店" : "景点"}} ·
+            {{item.district || "北京市"}}
+          </view>
+        </view>
+        <view class="card-badge {{item.placeType}}">
+          {{item.placeType === "restaurant" ? "饭店" : "景点"}}
+        </view>
+      </view>
+      <view class="card-note">{{item.note || "暂无备注"}}</view>
+      <view class="card-time">{{item.checkedAt}}</view>
+    </view>
+  </view>
+
+  <view class="empty-box section-card" wx:else>
+    <view class="empty-title">暂无符合条件的打卡记录</view>
+    <view class="empty-text">回到首页点击景点或搜索饭店后即可新增打卡。</view>
+  </view>
+</view>

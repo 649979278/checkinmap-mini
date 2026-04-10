@@ -1,0 +1,8 @@
+{
+  "name": "beijing-map-checkin-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/progress.test.js tests/marker.test.js tests/checkin.test.js"
+  }
+}
